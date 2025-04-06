@@ -1,0 +1,506 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROYECT OF LILIN</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="importmap">
+    {
+        "imports": {
+            "gsap": "https://cdn.jsdelivr.net/npm/gsap@3.12.2/index.js",
+            "three": "https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.158.0/examples/jsm/"
+        }
+    }
+    </script>
+</head>
+<body>
+    <div class="main-container">
+        <header>
+            <div class="title">
+                <h1>PROYECT OF LILIN</h1>
+                <div class="subtitle">SISTEMA DE DEFENSA TOKIO-3 - 2030</div>
+            </div>
+            <div class="time-display">
+                <div class="date">00.00.2030</div>
+                <div class="time">00:00</div>
+            </div>
+        </header>
+
+        <nav>
+            <ul>
+                <li data-section="overview" class="active">INFORMACIÓN</li>
+                <li data-section="mechas">EXPEDITIONS</li>
+                <li data-section="characters">PERSONAJES</li>
+                <li data-section="tokyo">TOKIO-3</li>
+                <li data-section="calendar">CALENDARIO</li>
+                <li data-section="angels">ÁNGELES</li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="overview" class="active">
+                <div class="section-header">
+                    <h2>PROYECT OF LILIN</h2>
+                    <div class="terminal-line"></div>
+                </div>
+                <div class="grid-container">
+                    <div class="grid-item description">
+                        <h3>// INFORMACIÓN DEL SISTEMA</h3>
+                        <p>Bienvenido a la ciudad futurista de Tokyo-3 en el año 2030. En este D&D inspirado en "Neon Genesis Evangelion", vivirás el día a día en una metrópolis al borde de la destrucción.</p>
+                        <p>Navega por tus actividades diarias mientras te preparas para pilotar los poderosos Expeditions para combatir a los misteriosos Ángeles.</p>
+                        <div class="terminal-effect">
+                            <div class="terminal-line"></div>
+                            <p class="typing">BASADO EN PROYECTO KAIZO 2.0 DE PETISUI</p>
+                        </div>
+                    </div>
+                    <div class="grid-item features">
+                        <h3>// CARACTERÍSTICAS</h3>
+                        <ul>
+                            <li>Explora Tokyo-3 en vista top-down y primera/tercera persona</li>
+                            <li>Sistema detallado de calendario y tiempo que afecta a todo el mundo</li>
+                            <li>Batallas estratégicas contra los Ángeles</li>
+                            <li>Gestiona tu vida diaria y tus responsabilidades como piloto</li>
+                            <li>Imágenes detalladas generadas por IA</li>
+                            <li>Personaliza tu perfil con fotos para los personajes activos</li>
+                        </ul>
+                    </div>
+                    <div class="grid-item inspiration">
+                        <h3>// INSPIRACIÓN</h3>
+                        <div class="inspiration-grid">
+                            <div class="inspiration-item">
+                                <div class="inspiration-icon evangelion"></div>
+                                <span>Evangelion</span>
+                            </div>
+                            <div class="inspiration-item">
+                                <div class="inspiration-icon persona"></div>
+                                <span>Persona Series</span>
+                            </div>
+                            <div class="inspiration-item">
+                                <div class="inspiration-icon darksouls"></div>
+                                <span>Dark Souls</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-item cityscape">
+                        <div class="cityscape-container">
+                            <div class="cityscape-animation">
+                                <!-- This will be populated with buildings by JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="mechas">
+                <div class="section-header">
+                    <h2>EXPEDITIONS</h2>
+                    <div class="terminal-line"></div>
+                </div>
+                <div class="mecha-container">
+                    <div class="mecha-display">
+                        <div class="mecha-hologram"></div>
+                        <div class="mecha-stats">
+                            <h3>EXPEDITION UNIT-01</h3>
+                            <div class="stat-grid">
+                                <div class="stat">
+                                    <span class="stat-label">POWER</span>
+                                    <div class="stat-bar"><div class="stat-fill" style="width:85%"></div></div>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">DEFENSE</span>
+                                    <div class="stat-bar"><div class="stat-fill" style="width:70%"></div></div>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">MOBILITY</span>
+                                    <div class="stat-bar"><div class="stat-fill" style="width:65%"></div></div>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">SYNC RATE</span>
+                                    <div class="stat-bar"><div class="stat-fill" style="width:90%"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mecha-description">
+                        <p>Los Expeditions son unidades mecánicas de combate desarrolladas para proteger a Tokyo-3 de los Ángeles. Cada unidad tiene características únicas y requiere un piloto con alta compatibilidad genética.</p>
+                        <p>El sistema de sincronización neuronal permite al piloto controlar la unidad como una extensión de su propio cuerpo, pero esto crea una conexión profunda que puede tener consecuencias físicas y mentales.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="characters">
+                <div class="section-header">
+                    <h2>PERSONAJES</h2>
+                    <div class="terminal-line"></div>
+                </div>
+                <div class="character-system">
+                    <div class="character-upload">
+                        <div class="upload-box">
+                            <svg viewBox="0 0 24 24" width="48" height="48" stroke="#ff0000" stroke-width="1.5" fill="none">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="17 8 12 3 7 8"></polyline>
+                                <line x1="12" y1="3" x2="12" y2="15"></line>
+                            </svg>
+                            <p>Arrastra y suelta una imagen para tu personaje</p>
+                        </div>
+                    </div>
+                    <div class="character-info">
+                        <div class="character-stats">
+                            <div class="char-header">
+                                <h3>INFORMACIÓN DE PERSONAJE</h3>
+                                <div class="terminal-line"></div>
+                            </div>
+                            <div class="char-attribute">
+                                <span class="attr-label">NOMBRE:</span>
+                                <input type="text" class="attr-value" placeholder="Ingrese nombre">
+                            </div>
+                            <div class="char-attribute">
+                                <span class="attr-label">EDAD:</span>
+                                <input type="text" class="attr-value" placeholder="Ingrese edad">
+                            </div>
+                            <div class="char-attribute">
+                                <span class="attr-label">TIPO:</span>
+                                <select class="attr-value">
+                                    <option>Piloto</option>
+                                    <option>Técnico</option>
+                                    <option>Científico</option>
+                                    <option>Personal HoyoProd</option>
+                                    <option>Otro</option>
+                                </select>
+                            </div>
+                            <div class="char-attribute abilities">
+                                <span class="attr-label">HABILIDADES:</span>
+                                <div class="abilities-grid">
+                                    <div class="ability">
+                                        <span>FUERZA</span>
+                                        <input type="number" min="1" max="20" value="10">
+                                    </div>
+                                    <div class="ability">
+                                        <span>DESTREZA</span>
+                                        <input type="number" min="1" max="20" value="10">
+                                    </div>
+                                    <div class="ability">
+                                        <span>CONSTITUCIÓN</span>
+                                        <input type="number" min="1" max="20" value="10">
+                                    </div>
+                                    <div class="ability">
+                                        <span>INTELIGENCIA</span>
+                                        <input type="number" min="1" max="20" value="10">
+                                    </div>
+                                    <div class="ability">
+                                        <span>SABIDURÍA</span>
+                                        <input type="number" min="1" max="20" value="10">
+                                    </div>
+                                    <div class="ability">
+                                        <span>CARISMA</span>
+                                        <input type="number" min="1" max="20" value="10">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="character-explanation">
+                                <h4>SISTEMA DE PERSONAJES DE PROYECT OF LILIN</h4>
+                                <div class="terminal-line"></div>
+                                <p>Al controlar un Expedition, deberás preocuparte por dos aspectos principales:</p>
+                                <ul>
+                                    <li><strong>Características del Expedition:</strong> Puedes mejorar tu unidad con armas, sistemas de propulsión y otros accesorios que te ayudarán en combate.</li>
+                                    <li><strong>Estadísticas académicas y sociales:</strong> Mantener buenas calificaciones y relaciones sociales es vital para el éxito de la misión.</li>
+                                </ul>
+                                <p>Si mantienes buenas notas y el proyecto POL avanza correctamente, ¡no tendrás problemas! El destino de Tokyo-3 depende de ti y de tu grupo.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tokyo">
+                <div class="section-header">
+                    <h2>TOKIO-3</h2>
+                    <div class="terminal-line"></div>
+                </div>
+                <div class="tokyo-display">
+                    <div class="tokyo-districts-container">
+                        <div class="district-icon" data-district="central" title="Distrito Central">
+                            <span class="district-name">Central</span>
+                        </div>
+                        <div class="district-icon" data-district="residential" title="Distrito Residencial">
+                            <span class="district-name">Residencial</span>
+                        </div>
+                        <div class="district-icon" data-district="commercial" title="Distrito Comercial">
+                            <span class="district-name">Comercial</span>
+                        </div>
+                        <div class="district-icon" data-district="industrial" title="Distrito Industrial">
+                            <span class="district-name">Industrial</span>
+                        </div>
+                        <div class="district-icon" data-district="educational" title="Distrito Educativo">
+                            <span class="district-name">Educativo</span>
+                        </div>
+                        <div class="district-icon" data-district="natural" title="Distrito Natural">
+                            <span class="district-name">Natural</span>
+                        </div>
+                        <div class="district-icon" data-district="chabolas" title="Barrio de Chabolas">
+                            <span class="district-name">Chabolas</span>
+                        </div>
+                        <div class="district-icon" data-district="catacumbas" title="Catacumbas">
+                            <span class="district-name">Catacumbas</span>
+                        </div>
+                    </div>
+                    <div class="tokyo-info">
+                        <h3>CIUDAD FORTALEZA</h3>
+                        <p>Tokio-3 es una ciudad fortaleza diseñada para defenderse de los Ángeles. Sus edificios pueden descender bajo tierra para protegerse, y contiene numerosas plataformas de lanzamiento para los Expeditions.</p>
+
+                        <div class="district-details">
+                            <h4>INFORMACIÓN DETALLADA</h4>
+                            <div class="district-info active" data-district="central">
+                                <h5>DISTRITO CENTRAL</h5>
+                                <p>Núcleo principal de Tokio-3, altamente vigilado y seguro. Contiene los principales centros de mando, el Nexo HQ y sistemas de defensa primarios.</p>
+                                <div class="district-stats">
+                                    <div>SEGURIDAD: <span class="high">ALTA</span></div>
+                                    <div>POBLACIÓN: <span>2</span></div>
+                                    <div>INFRAESTRUCTURA: <span class="high">AVANZADA</span></div>
+                                </div>
+                            </div>
+                            <div class="district-info" data-district="residential">
+                                <h5>DISTRITO RESIDENCIAL</h5>
+                                <p>Zona habitacional para personal y civiles. Incluye apartamentos, servicios básicos y pequeñas áreas comerciales.</p>
+                                <div class="district-stats">
+                                    <div>SEGURIDAD: <span class="medium">MEDIA</span></div>
+                                    <div>POBLACIÓN: <span>120,000</span></div>
+                                    <div>INFRAESTRUCTURA: <span class="low">BÁSICA</span></div>
+                                </div>
+                            </div>
+                            <div class="district-info" data-district="commercial">
+                                <h5>DISTRITO COMERCIAL</h5>
+                                <p>Centro económico con tiendas, entretenimiento y negocios. Arquitectura moderna con amplias avenidas.</p>
+                                <div class="district-stats">
+                                    <div>SEGURIDAD: <span class="high">ALTA</span></div>
+                                    <div>POBLACIÓN: <span>0</span></div>
+                                    <div>INFRAESTRUCTURA: <span class="high">ALTA</span></div>
+                                </div>
+                            </div>
+                            <div class="district-info" data-district="industrial">
+                                <h5>DISTRITO INDUSTRIAL</h5>
+                                <p>Zona de manufactura y generación de energía. Incluye fábricas, almacenes y sistemas de soporte vital.</p>
+                                <div class="district-stats">
+                                    <div>SEGURIDAD: <span class="low">BAJA</span></div>
+                                    <div>POBLACIÓN: <span>0</span></div>
+                                    <div>INFRAESTRUCTURA: <span class="low">POBRE</span></div>
+                                </div>
+                            </div>
+                            <div class="district-info" data-district="educational">
+                                <h5>DISTRITO EDUCATIVO</h5>
+                                <p>Área con escuelas, laboratorios y centros de investigación. Los pilotos de Expedition estudian aquí.</p>
+                                <div class="district-stats">
+                                    <div>SEGURIDAD: <span class="medium">MEDIA</span></div>
+                                    <div>POBLACIÓN: <span>3000</span></div>
+                                    <div>INFRAESTRUCTURA: <span class="medium">ESTÁNDAR</span></div>
+                                </div>
+                            </div>
+                            <div class="district-info" data-district="natural">
+                                <h5>DISTRITO NATURAL</h5>
+                                <p>Zona natural en las afueras de la ciudad.</p>
+                                <div class="district-stats">
+                                    <div>SEGURIDAD: <span class="high">ALTA</span></div>
+                                    <div>POBLACIÓN: <span>0</span></div>
+                                    <div>INFRAESTRUCTURA: <span class="none">NINGUNA</span></div>
+                                </div>
+                            </div>
+                            <div class="district-info" data-district="chabolas">
+                                <h5>BARRIO DE CHABOLAS</h5>
+                                <p>Un barrio gigantesco de chabolas en las afueras de la ciudad.</p>
+                                <div class="district-stats">
+                                    <div>SEGURIDAD: <span class="low">BAJA</span></div>
+                                    <div>POBLACIÓN: <span>1000</span></div>
+                                    <div>INFRAESTRUCTURA: <span class="none">NINGUNA</span></div>
+                                </div>
+                            </div>
+                            <div class="district-info" data-district="catacumbas">
+                                <h5>CATACUMBAS</h5>
+                                <p>Se desconoce que hay.</p>
+                                <div class="district-stats">
+                                    <div>SEGURIDAD: <span class="unknown">DESCONOCIDA</span></div>
+                                    <div>POBLACIÓN: <span>DESCONOCIDA</span></div>
+                                    <div>INFRAESTRUCTURA: <span class="unknown">DESCONOCIDA</span></div>
+                                </div>
+                            </div>
+                            <div class="district-info no-selection">
+                                <h5>SELECCIONA UN DISTRITO</h5>
+                                <p>Por favor, selecciona un distrito para ver su información.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="calendar">
+                <div class="section-header">
+                    <h2>CALENDARIO</h2>
+                    <div class="terminal-line"></div>
+                </div>
+                <div class="calendar-container">
+                    <div class="calendar-display">
+                        <div class="month-navigation">
+                            <button class="prev-month">&lt;</button>
+                            <h3 class="current-month">ENERO 2030</h3>
+                            <button class="next-month">&gt;</button>
+                        </div>
+                        <div class="weekdays">
+                            <div>L</div>
+                            <div>M</div>
+                            <div>X</div>
+                            <div>J</div>
+                            <div>V</div>
+                            <div>S</div>
+                            <div>D</div>
+                        </div>
+                        <div class="days-grid">
+                            <!-- Days will be populated by JS -->
+                        </div>
+                        <div class="calendar-message hidden">ERROR: ACCESO DENEGADO</div>
+                    </div>
+                    <div class="event-display">
+                        <h3>EVENTOS</h3>
+                        <div class="terminal-line"></div>
+                        <div class="event-list">
+                            <div class="event">
+                                <div class="event-time">08:00</div>
+                                <div class="event-name">Prueba de sincronización</div>
+                            </div>
+                            <div class="event">
+                                <div class="event-time">14:30</div>
+                                <div class="event-name">Clases en la escuela</div>
+                            </div>
+                            <div class="event">
+                                <div class="event-time">19:00</div>
+                                <div class="event-name">Entrenamiento de combate</div>
+                            </div>
+                        </div>
+                        <div class="time-system">
+                            <h4>SISTEMA DE TIEMPO</h4>
+                            <p>Cada día se divide en periodos que afectan a las actividades disponibles y el comportamiento de los NPCs.</p>
+                            <div class="time-periods">
+                                <div class="time-period">
+                                    <span>MAÑANA</span>
+                                    <span>06:00 - 12:00</span>
+                                </div>
+                                <div class="time-period">
+                                    <span>TARDE</span>
+                                    <span>12:00 - 18:00</span>
+                                </div>
+                                <div class="time-period">
+                                    <span>NOCHE</span>
+                                    <span>18:00 - 00:00</span>
+                                </div>
+                                <div class="time-period">
+                                    <span>MADRUGADA</span>
+                                    <span>00:00 - 06:00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="angels">
+                <div class="section-header">
+                    <h2>ÁNGELES</h2>
+                    <div class="terminal-line"></div>
+                </div>
+                <div class="angel-container">
+                    <div class="angel-threat">
+                        <div class="threat-level">
+                            <h3>NIVEL DE AMENAZA</h3>
+                            <div class="threat-meter">
+                                <div class="threat-bar"></div>
+                                <div class="threat-indicator" style="left: 20%"></div>
+                            </div>
+                            <div class="threat-status">ESTADO: <span>BAJO</span></div>
+                        </div>
+                        <div class="angel-scanner">
+                            <div class="scanner-display">
+                                <div class="scan-line"></div>
+                                <div class="scan-text">ESCANEANDO...</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="angel-database">
+                        <h3>BASE DE DATOS DE ÁNGELES</h3>
+                        <div class="terminal-line"></div>
+                        <div class="angel-list">
+                            <div class="angel-entry">
+                                <div class="angel-number">01</div>
+                                <div class="angel-name">???</div>
+                                <div class="angel-status">DESCONOCIDO</div>
+                            </div>
+                            <div class="angel-entry">
+                                <div class="angel-number">02</div>
+                                <div class="angel-name">???</div>
+                                <div class="angel-status">DESCONOCIDO</div>
+                            </div>
+                            <div class="angel-entry">
+                                <div class="angel-number">03</div>
+                                <div class="angel-name">???</div>
+                                <div class="angel-status">DESCONOCIDO</div>
+                            </div>
+                            <div class="angel-entry">
+                                <div class="angel-number">04</div>
+                                <div class="angel-name">???</div>
+                                <div class="angel-status">DESCONOCIDO</div>
+                            </div>
+                            <div class="angel-entry">
+                                <div class="angel-number">05</div>
+                                <div class="angel-name">???</div>
+                                <div class="angel-status">DESCONOCIDO</div>
+                            </div>
+                            <div class="angel-entry">
+                                <div class="angel-number">06</div>
+                                <div class="angel-name">???</div>
+                                <div class="angel-status">DESCONOCIDO</div>
+                            </div>
+                            <div class="angel-entry">
+                                <div class="angel-number">07</div>
+                                <div class="angel-name">???</div>
+                                <div class="angel-status">DESCONOCIDO</div>
+                            </div>
+                            <div class="angel-entry">
+                                <div class="angel-number">08</div>
+                                <div class="angel-name">???</div>
+                                <div class="angel-status">DESCONOCIDO</div>
+                            </div>
+                            <div class="angel-entry">
+                                <div class="angel-number">09</div>
+                                <div class="angel-name">???</div>
+                                <div class="angel-status">DESCONOCIDO</div>
+                            </div>
+                        </div>
+                        <div class="angel-info">
+                            <p>Los Ángeles son entidades misteriosas que atacan Tokyo-3. Cada uno tiene habilidades únicas y requiere una estrategia de combate específica.</p>
+                            <p>Se sabe que los Ángeles aprenden de tus tácticas anteriores, por lo que la misma estrategia no funcionará más de una vez.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-info">HOYOPROD  2030 | PROYECT OF LILIN</div>
+            <div class="terminal-decoration">
+                <div class="terminal-line"></div>
+                <div class="terminal-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class = "footer-autor">Hey! Hecho por Petisui :)</div>
+        </footer>
+    </div>
+
+    <script src="script.js" type="module"></script>
+    <script src="cityscape-utils.js" type="module"></script>
+    <script src="logo-utils.js" type="module"></script>
+    <script src="character-stats.js" type="module"></script>
+    <script src="character-export-import.js" type="module"></script>
+    <script src="mecha-display.js" type="module"></script>
+</body>
+</html>
